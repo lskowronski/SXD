@@ -1,0 +1,7 @@
+docker rmi -f $(docker images | grep "<none>" | docker images | grep "<none>" | %{($_ -split "\s+")[2]})
+
+docker run --name sitecore -p 80:80 -it sitecore powershell
+docker build -t sitecore .
+
+docker rm $(docker ps --filter status=dead --filter status=exited -aq)
+docker volume rm $(docker volume ls -qf dangling=true)
