@@ -1,4 +1,4 @@
-docker rmi -f $(docker images | grep "<none>" | docker images | grep "<none>" | %{($_ -split "\s+")[2]})
+docker rmi -f $(docker images | Select-String -Pattern "<none>" | %{($_ -split "\s+")[2]})
 
 docker run --name sitecore -p 80:80 -it sitecore powershell
 docker build -t sitecore .

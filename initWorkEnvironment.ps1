@@ -6,7 +6,7 @@ $installersDirName = "installers";
 $installersDir = "./image/$installersDirName";
 if((Test-Path $installersDir) -eq 0)
 {
-    New-Item -ItemType Directory -Force -Path $installersDirName
+    New-Item $installersDir -ItemType Directory -Force 
 }
 # download sql server installation file
 $SQLSERVERInstallationFile = "SQLEXPR_x64_ENU.exe";
@@ -24,7 +24,7 @@ $vanillaSitecoreDirName = "sitecore";
 $vanillaSitecoreDir = "./image/$vanillaSitecoreDirName";
 if((Test-Path $vanillaSitecoreDir) -eq 0)
 {
-    New-Item -ItemType Directory -Force -Path $vanillaSitecoreDirName
+    New-Item $vanillaSitecoreDir -ItemType Directory -Force     
 }
 if((Test-Path "$vanillaSitecoreDir/Website") -eq 0)
 {
@@ -39,7 +39,7 @@ $licensesDirName = "licenses"
 $licensesDir = "./$licensesDirName"
 if((Test-Path $licensesDir) -eq 0)
 {
-    New-Item -ItemType Directory -Force -Path $licensesDirName
+    New-Item $licensesDir -ItemType Directory -Force     
 }
 if((Test-Path "$licensesDir/license.xml") -eq 0)
 {
@@ -49,20 +49,15 @@ if((Test-Path "$licensesDir/license.xml") -eq 0)
 Write-Host "All required license files are available"
 ##################################################################################################
 # create directory for work
-Write-Host "Create directory for poject"
-if((Test-Path "./project") -eq 0)
-{
-    New-Item -ItemType Directory -Force -Path "project"
-}
 Write-Host "Create directory for solution"
 if((Test-Path "./project/solution") -eq 0)
 {
-    New-Item -ItemType Directory -Force -Path "project/solution"
+    New-Item "project/solution" -ItemType Directory -Force
 }
 Write-Host "Create directory for inetpub"
 if((Test-Path "./project/inetpub") -eq 0)
 {
-    New-Item -ItemType Directory -Force -Path "project/inetpub"
+    New-Item "project/inetpub" -ItemType Directory -Force
 }
 if((Test-Path "./project/inetpub/Website") -eq 0)
 {
