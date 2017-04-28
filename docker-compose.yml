@@ -1,0 +1,27 @@
+version: "3.0"
+services:
+  sitecore:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - "80:80"
+    volumes:
+      - C:\inetpub\wwwroot\sabreTest:C:/shared
+    tty: true
+    stdin_open: true
+    privileged: true
+  sitecore-mongo:
+    image: "mongo:windowsservercore"
+    ports: 
+      - "27017:27017"
+    tty: true
+  sitecore-solr:
+    image: "istern/windows-solr54:latest"
+    ports:
+      - "8983:8999"
+    tty: true
+#    deploy:
+#      resources:
+#        reservations:
+#          memory: 4G

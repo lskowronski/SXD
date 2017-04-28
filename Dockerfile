@@ -4,9 +4,9 @@ LABEL Description="Sitecore Experience Platform 8.2 rev. 170407 (8.2 Update-3)."
 
 # Adding the files
 ADD image/installers/ /
-ADD image/sitecore/ /image/sitecore
+#ADD image/sitecore/ /image/sitecore
 ADD image/scripts/ /image/scripts
-ADD licenses/ /licenses
+#ADD licenses/ /licenses
 WORKDIR /
 
 

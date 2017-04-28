@@ -1,7 +1,21 @@
+# remove invalid images
 docker rmi -f $(docker images | Select-String -Pattern "<none>" | %{($_ -split "\s+")[2]})
 
+# run container with powershell
 docker run --name sitecore -p 80:80 -it sitecore powershell
+# build container
 docker build -t sitecore .
 
+# delete images and containers which are not in use
 docker rm $(docker ps --filter status=dead --filter status=exited -aq)
 docker volume rm $(docker volume ls -qf dangling=true)
+
+#remove NetNat (Docker: HNS failed with error : The parameter is incorrect)
+Get-NetNat | Remove-NetNat
+
+#compose
+docker-compose up
+docker-compose down
+
+
+icacls "C:\shared" /q /c /t /grant IIS_IUSRS:F

@@ -12,8 +12,3 @@ Set-ItemProperty -Path 'HKLM:\software\microsoft\microsoft sql server\mssql13.SQ
 Start-Service MSSQL`$SQLEXPRESS ;
 
 Invoke-Sqlcmd -Query "ALTER LOGIN sa with password='Str0ng_En0ugh'; ALTER LOGIN sa ENABLE;" -ServerInstance "." ;
-
-Invoke-Sqlcmd -Query "CREATE DATABASE Sitecore_Analytics ON (FILENAME = 'C:\image\sitecore\Databases\Sitecore.Analytics.mdf'), (FILENAME = 'C:\image\sitecore\Databases\Sitecore.Analytics.ldf') FOR ATTACH ;" -ServerInstance "." ;
-Invoke-Sqlcmd -Query "CREATE DATABASE Sitecore_Core      ON (FILENAME = 'C:\image\sitecore\Databases\Sitecore.Core.mdf'),      (FILENAME = 'C:\image\sitecore\Databases\Sitecore.Core.ldf')      FOR ATTACH ;" -ServerInstance "." ;
-Invoke-Sqlcmd -Query "CREATE DATABASE Sitecore_Master    ON (FILENAME = 'C:\image\sitecore\Databases\Sitecore.Master.mdf'),    (FILENAME = 'C:\image\sitecore\Databases\Sitecore.Master.ldf')    FOR ATTACH ;" -ServerInstance "." ;
-Invoke-Sqlcmd -Query "CREATE DATABASE Sitecore_Web       ON (FILENAME = 'C:\image\sitecore\Databases\Sitecore.Web.mdf'),       (FILENAME = 'C:\image\sitecore\Databases\Sitecore.Web.ldf')      FOR ATTACH ;" -ServerInstance "." ;

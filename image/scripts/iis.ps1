@@ -8,7 +8,7 @@ Add-WindowsFeature Web-Asp-Net45
 
 C:\Windows\System32\inetsrv\appcmd.exe delete site "default web site"
 
-C:\Windows\System32\inetsrv\appcmd.exe add site /name:Sitecore /bindings:http/*:80: /physicalPath:C:\image\sitecore\Website
+C:\Windows\System32\inetsrv\appcmd.exe add site /name:Sitecore /bindings:http/*:80: /physicalPath:C:\shared\Website
 
 C:\Windows\System32\inetsrv\appcmd.exe start site Sitecore
 
